@@ -1,13 +1,15 @@
 import React from 'react';
 import HoCAux from '../../hoc/HoCAux';
 
+import '../../stylesheets/components/Layout/layout.css';
+
 function Layout(props) {
     return (
         <HoCAux>
             <header>
-                Header
+                ToolBar, SideDrawer, BacakDrop
             </header>
-            <main>
+            <main className="content">
                 {props.children}
             </main>
         </HoCAux>
