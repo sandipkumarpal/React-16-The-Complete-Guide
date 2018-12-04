@@ -28,7 +28,14 @@ class BuildControls extends React.Component {
     );
     return (
       <div className="BuildControls">
+        <p>Current price: <strong>{this.props.price.toFixed(2)}</strong></p>
         {control}
+        <button
+          disabled={!this.props.purchasable}
+          className="OrderButton"
+        >
+          PURCHASE NOW!
+        </button>
       </div>
     );
   }
