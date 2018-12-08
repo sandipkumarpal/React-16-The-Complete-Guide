@@ -110,6 +110,7 @@ class BurgerBuilder extends React.Component {
                     ingredients={ingredients}
                     purchaseContinued={this.purchaseContinuehandler}
                     purchaseCanceled={this.purchaseCancelhandler}
+                    price={totalPrice}
                   />
                 </Modal>
                 <Burger ingredients={ingredients}/>
