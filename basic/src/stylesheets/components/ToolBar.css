@@ -17,8 +17,9 @@
   height: 100%;
 }
 
-.Logo {
+.ToolBar .Logo {
   height: 80%;
+  margin-bottom: 0;
 }
 
 @media (max-width: 499px) {
