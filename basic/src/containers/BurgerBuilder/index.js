@@ -32,6 +32,7 @@ class BurgerBuilder extends React.Component {
         this.updatePurchaseState = this.updatePurchaseState.bind(this);
         this.purchasehandler = this.purchasehandler.bind(this);
         this.purchaseCancelhandler = this.purchaseCancelhandler.bind(this);
+        this.purchaseContinuehandler = this.purchaseContinuehandler.bind(this);
     }
 
     addIngredientHandler(type) {
@@ -92,6 +93,10 @@ class BurgerBuilder extends React.Component {
       this.setState({ purchasing: false});
     }
 
+    purchaseContinuehandler() {
+      alert('You ContinueQ');
+    }
+
     render() {
         const { ingredients, totalPrice, purchasable, purchasing } = this.state;
         const disabledInfo = { ...ingredients };
@@ -101,7 +106,11 @@ class BurgerBuilder extends React.Component {
         return (
             <HoCAusx>
                 <Modal show={purchasing} modalClosed={this.purchaseCancelhandler}>
-                  <OrderSummary ingredients={ingredients} />
+                  <OrderSummary
+                    ingredients={ingredients}
+                    purchaseContinued={this.purchaseContinuehandler}
+                    purchaseCanceled={this.purchaseCancelhandler}
+                  />
                 </Modal>
                 <Burger ingredients={ingredients}/>
                 <BuildControls

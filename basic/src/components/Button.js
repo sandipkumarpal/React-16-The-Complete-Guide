@@ -4,7 +4,11 @@ import '../stylesheets/components/Button.css';
 
 function Button(props) {
   return(
-    <div className={`Button ${props.btnType}`} onClick={props.clicked}>{props.children}</div>
+    <button
+      className={`Button ${props.btnType}`}
+      onClick={props.clicked}>
+        {props.children}
+      </button>
   );
 }
 

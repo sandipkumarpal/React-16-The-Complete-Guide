@@ -3,6 +3,8 @@ import React from 'react';
 import HoCAux from '../hoc/HoCAux';
 import '../stylesheets/components/OrderSummary.css';
 
+import Button from './Button';
+
 function OrderSummary(props) {
   const ingredientsSummary = Object.keys(props.ingredients)
   .map((item, index) =>
@@ -18,6 +20,8 @@ function OrderSummary(props) {
         {ingredientsSummary}
       </ul>
       <p>Continue to Checkout?</p>
+      <Button btnType="Danger" clicked={props.purchaseCanceled}>Cancel</Button>
+      <Button btnType="Success" clicked={props.purchaseContinued}>Continue</Button>
     </HoCAux>
   );
 }
