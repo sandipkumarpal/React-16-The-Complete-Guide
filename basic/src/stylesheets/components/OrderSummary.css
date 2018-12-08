@@ -1,0 +1,6 @@
+.OrderSummaryList {
+
+}
+.OrderSummaryList span {
+  text-transform: capitalize;
+}

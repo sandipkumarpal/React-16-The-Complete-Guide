@@ -3,6 +3,8 @@ import React from 'react';
 import HoCAusx from '../../hoc/HoCAux';
 import Burger from './Burger';
 import BuildControls from '../BuildControls';
+import Modal from '../../components/Modal';
+import OrderSummary from '../../components/OrderSummary';
 
 const INGREDIENT_PRICES =  {
   salad: 0.8,
@@ -88,6 +90,9 @@ class BurgerBuilder extends React.Component {
         }
         return (
             <HoCAusx>
+                <Modal>
+                  <OrderSummary ingredients={ingredients} />
+                </Modal>
                 <Burger ingredients={ingredients}/>
                 <BuildControls
                   ingredientAdd={this.addIngredientHandler}
