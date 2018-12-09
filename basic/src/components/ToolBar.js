@@ -9,7 +9,7 @@ function ToolBar(props) {
       <header className="ToolBar">
         <div>Menu</div>
         <Logo />
-        <nav>
+        <nav className="DesktopOnly">
           <NavigationItems />
         </nav>
       </header>
