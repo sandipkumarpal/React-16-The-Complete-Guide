@@ -3,8 +3,8 @@ import React from 'react';
 import HoCAusx from '../../hoc/HoCAux';
 import Burger from './Burger';
 import BuildControls from '../BuildControls';
-import Modal from '../../components/Modal';
-import OrderSummary from '../../components/OrderSummary';
+import Modal from '../Modal';
+import OrderSummary from '../OrderSummary';
 
 const INGREDIENT_PRICES =  {
   salad: 0.8,
