@@ -1,6 +1,7 @@
 import React from 'react';
-import BuildControl from '../components/BuildControl';
+import PropTypes from 'prop-types';
 
+import BuildControl from '../components/BuildControl';
 import '../stylesheets/containers/BuildControls.css';
 
 class BuildControls extends React.Component {
@@ -41,5 +42,23 @@ class BuildControls extends React.Component {
     );
   }
 }
+
+BuildControls.defaultProps = {
+  ingredientAdd: () => {},
+  ingredientRemove: () => {},
+  disabled: {},
+  price: 0,
+  purchasable: false,
+  ordered: () => {}
+};
+
+BuildControls.propTypes = {
+  ingredientAdd: PropTypes.func.isRequired,
+  ingredientRemove: PropTypes.func.isRequired,
+  disabled: PropTypes.object.isRequired,
+  price: PropTypes.number.isRequired,
+  purchasable: PropTypes.bool.isRequired,
+  ordered: PropTypes.func.isRequired
+};
 
 export default BuildControls;

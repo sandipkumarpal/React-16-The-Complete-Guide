@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Logo  from './Logo';
 import NavigationItems from './NavigationItems';
@@ -24,5 +25,15 @@ function SideDrawer(props) {
     </HoCAux>
   );
 }
+
+SideDrawer.defaultProps = {
+  open: false,
+  closed: () => {},
+};
+
+SideDrawer.propTypes = {
+  open: PropTypes.bool.isRequired,
+  closed: PropTypes.func.isRequired,
+};
 
 export default SideDrawer;

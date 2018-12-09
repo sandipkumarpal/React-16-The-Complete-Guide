@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HoCAux from '../hoc/HoCAux';
 import '../stylesheets/components/OrderSummary.css';
@@ -26,5 +27,19 @@ function OrderSummary(props) {
     </HoCAux>
   );
 }
+
+OrderSummary.defaultProps = {
+  ingredients: {},
+  price: 0,
+  purchaseCanceled: () => {},
+  purchaseContinued: () => {}
+};
+
+OrderSummary.propTypes = {
+  ingredients: PropTypes.object.isRequired,
+  price: PropTypes.number.isRequired,
+  purchaseCanceled: PropTypes.func.isRequired,
+  purchaseContinued: PropTypes.func.isRequired
+};
 
 export default OrderSummary;

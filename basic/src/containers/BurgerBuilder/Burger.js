@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import BurgerInGredient from '../../components/BurgerInGredient';
 
 import '../../stylesheets/containers/Burger.css';
@@ -32,5 +32,13 @@ class Burger extends React.Component {
     );
  }
 }
+
+Burger.defaultProps = {
+  ingredients: {},
+};
+
+Burger.propTypes = {
+  ingredients: PropTypes.object.isRequired,
+};
 
 export default Burger;

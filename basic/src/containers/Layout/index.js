@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import HoCAux from '../../hoc/HoCAux';
 
 import '../../stylesheets/containers/Layout/layout.css';
@@ -37,5 +39,13 @@ class Layout extends React.Component {
     );
   }
 }
+
+Layout.defaultProps = {
+  children: {},
+};
+
+Layout.propTypes = {
+  children: PropTypes.object.isRequired,
+};
 
 export default Layout;

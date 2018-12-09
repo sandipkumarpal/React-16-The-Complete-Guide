@@ -3,7 +3,7 @@ import '../stylesheets/components/NavigationItems.css';
 
 import NavigationItem from './NavigationItem';
 
-function NavigationItems(props) {
+function NavigationItems() {
   return (
     <ul className="NavigationItems">
       <NavigationItem link="/" active>Burger Builder</NavigationItem>

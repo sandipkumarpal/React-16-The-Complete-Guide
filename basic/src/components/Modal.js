@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HoCAux from '../hoc/HoCAux';
 import BackDrop from './BackDrop';
@@ -21,5 +22,17 @@ function Modal(props) {
     </HoCAux>
   );
 }
+
+Modal.defaultProps = {
+  show: false,
+  modalClosed: () => {},
+  children: {}
+};
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  modalClosed: PropTypes.func.isRequired,
+  children: PropTypes.object.isRequired
+};
 
 export default Modal;
