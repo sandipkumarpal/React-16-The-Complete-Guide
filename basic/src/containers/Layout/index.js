@@ -11,17 +11,25 @@ class Layout extends React.Component {
       this.state = {
         showSideDrawer: true
       };
-      this.SideDrawerCancleHandler = this.SideDrawerCancleHandler.bind(this);
+      this.sideDrawerCancleHandler = this.sideDrawerCancleHandler.bind(this);
+      this.sideDrawerToggleHandler = this.sideDrawerToggleHandler.bind(this);
     }
 
-    SideDrawerCancleHandler() {
+    sideDrawerCancleHandler() {
       this.setState({ showSideDrawer: false });
     }
+
+    sideDrawerToggleHandler() {
+      this.setState((prevState) => {
+        return {showSideDrawer: !prevState.showSideDrawer};
+      });
+    }
+
     render() {
       return (
         <HoCAux>
-            <ToolBar />
-            <SideDrawer open={this.state.showSideDrawer} closed={this.SideDrawerCancleHandler} />
+            <ToolBar drawerToggleClicked={this.sideDrawerToggleHandler}/>
+            <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerCancleHandler} />
             <main className="content">
                 {this.props.children}
             </main>
