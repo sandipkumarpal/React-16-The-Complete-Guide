@@ -9,7 +9,7 @@ class Layout extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        showSideDrawer: true
+        showSideDrawer: false
       };
       this.sideDrawerCancleHandler = this.sideDrawerCancleHandler.bind(this);
       this.sideDrawerToggleHandler = this.sideDrawerToggleHandler.bind(this);
