@@ -11,7 +11,8 @@ class Blog extends Component {
         super(props);
         this.state = {
             posts: [],
-            selectedPostId: null
+            selectedPostId: null,
+            error: false
         }
         this.selectedPostHandler = this.selectedPostHandler.bind(this);
     }
@@ -28,6 +29,9 @@ class Blog extends Component {
             console.log(posts)
             this.setState({ posts });
         })
+        .catch(error => {
+            this.setState({ error: true });
+        })
     }
 
     selectedPostHandler(id) {
@@ -35,14 +39,18 @@ class Blog extends Component {
     }
 
     render () {
-        const posts = this.state.posts.map(post => 
-            <Post 
-                title={post.title} 
-                key={post.id} 
-                author={post.author} 
-                clicked={() => this.selectedPostHandler(post.id)}
-            />
-        );
+        let posts = <p style={{ textAlign: 'center'}}>Something went wrong!</p>;
+        if (!this.state.error) {
+            posts = this.state.posts.map(post => 
+                <Post 
+                    title={post.title} 
+                    key={post.id} 
+                    author={post.author} 
+                    clicked={() => this.selectedPostHandler(post.id)}
+                />
+            );
+        }
+        
         return (
             <div className='Blog'>
                 <section className="Posts">
