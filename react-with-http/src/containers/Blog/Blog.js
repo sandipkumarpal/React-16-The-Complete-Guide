@@ -10,8 +10,10 @@ class Blog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: [],
+            selectedPostId: null
         }
+        this.selectedPostHandler = this.selectedPostHandler.bind(this);
     }
 
     componentDidMount() {
@@ -28,12 +30,17 @@ class Blog extends Component {
         })
     }
 
+    selectedPostHandler(id) {
+        this.setState({ selectedPostId: id });
+    }
+
     render () {
         const posts = this.state.posts.map(post => 
             <Post 
                 title={post.title} 
                 key={post.id} 
                 author={post.author} 
+                clicked={() => this.selectedPostHandler(post.id)}
             />
         );
         return (
@@ -42,7 +49,7 @@ class Blog extends Component {
                     {posts}
                 </section>
                 <section>
-                    <FullPost />
+                    <FullPost id={this.state.selectedPostId} />
                 </section>
                 <section>
                     <NewPost />
