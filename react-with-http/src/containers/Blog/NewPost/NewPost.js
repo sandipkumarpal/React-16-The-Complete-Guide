@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 
 import './NewPost.css';
+import axios from 'axios';
 
 class NewPost extends Component {
-    state = {
-        title: '',
-        content: '',
-        author: 'Max',
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: '',
+            author: 'Max',
+        };
+        this.postDateHandler = this.postDateHandler.bind(this);
+    }
+
+    postDateHandler() {
+        const {title, content, author } = this.state;
+        const data = {
+            title, 
+            content, 
+            author
+        }
+        axios.post('https://jsonplaceholder.typicode.com/posts', data)
+            .then(response => console.log(response));
     }
     
     render () {
