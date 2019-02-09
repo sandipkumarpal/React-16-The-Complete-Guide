@@ -12,18 +12,7 @@ class FullPost extends Component {
         this.deletePostHandler = this.deletePostHandler.bind(this);
     }
     componentDidUpdate() {
-        const { id } = this.props;
-        const { loadedPost } = this.state;
-        console.log(!loadedPost)
-        if(id) {
-            if(!loadedPost || (loadedPost && loadedPost.id !== id)) {
-                axios.get('/posts/' + id)
-                .then(response =>{
-                    this.setState({ loadedPost: response.data }); 
-                    console.log(response.data);
-                });
-            }
-        }
+        
     }
     deletePostHandler() {
         const { id } = this.props;
